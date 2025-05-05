@@ -4,7 +4,7 @@ export async function getProducts(request: Request, response: Response) {
   const products = await Product.findAndCountAll({
     where: { availability: true },
     attributes: {
-      exclude: ["createdAt", "updatedAt", "availability"],
+      exclude: ["createdAt", "updatedAt"],
     },
   });
   response.json({ data: products });
@@ -17,7 +17,7 @@ export async function getProductById(request: Request, response: Response) {
   const { id } = request.params;
   const product = await Product.findByPk(id, {
     attributes: {
-      exclude: ["createdAt", "updatedAt", "availability"],
+      exclude: ["createdAt", "updatedAt"],
     },
   });
   if (!product) {
