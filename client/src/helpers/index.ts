@@ -4,3 +4,6 @@ export function formatCurrency(amount: number) {
     currency: "MXN",
   }).format(amount);
 }
+export function toBoolean(str: string) {
+  return str.toLocaleLowerCase() == "true";
+}

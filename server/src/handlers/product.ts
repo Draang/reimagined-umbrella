@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import Product from "../models/Product.model";
 export async function getProducts(request: Request, response: Response) {
   const products = await Product.findAndCountAll({
-    where: { availability: true },
+   
     attributes: {
       exclude: ["createdAt", "updatedAt"],
     },
