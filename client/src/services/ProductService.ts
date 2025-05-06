@@ -75,3 +75,14 @@ export async function editProduct(data: ProductData, id: Product["id"]) {
     console.log("error", error);
   }
 }
+export async function deleteProduct(id: Product["id"]) {
+  try {
+    const url = `${import.meta.env.VITE_API_URL}/products/${id}`;
+    const res = await axios.delete(url);
+    if (res.status != 200) {
+      throw new Error("Error al borrar");
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
